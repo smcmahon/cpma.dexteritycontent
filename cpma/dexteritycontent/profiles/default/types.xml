@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object meta_type="Plone Types Tool" name="portal_types">
+ <property name="title">Controls the available content types in your portal</property>
+ <object meta_type="Dexterity FTI" name="sponsor_folder" />
+ <object meta_type="Dexterity FTI" name="page_sponsor" />
+ <object meta_type="Dexterity FTI" name="standardfolder" />
+ <object meta_type="Dexterity FTI" name="standarddoc" />
+ <object meta_type="Dexterity FTI" name="standardevent" />
+ <object meta_type="Dexterity FTI" name="standardnewsitem" />
+ <!-- -*- extra stuff goes here -*- -->
+</object>

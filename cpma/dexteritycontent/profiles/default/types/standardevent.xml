@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<object name="standardevent" meta_type="Dexterity FTI" i18n:domain="plone"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <property name="title" i18n:translate="">StandardEvent</property>
+ <property name="description" i18n:translate="">None</property>
+ <property name="icon_expr">string:${portal_url}/event_icon.png</property>
+ <property name="factory">standardevent</property>
+ <property
+    name="add_view_expr">string:${folder_url}/++add++standardevent</property>
+ <property name="link_target"></property>
+ <property name="immediate_view">view</property>
+ <property name="global_allow">True</property>
+ <property name="filter_content_types">False</property>
+ <property name="allowed_content_types">
+  <element value="File"/>
+  <element value="Image"/>
+  <element value="Link"/>
+ </property>
+ <property name="allow_discussion">False</property>
+ <property name="default_view">standardevent_view</property>
+ <property name="view_methods">
+  <element value="standardevent_view"/>
+ </property>
+ <property name="default_view_fallback">False</property>
+ <property name="add_permission">cmf.AddPortalContent</property>
+ <property name="klass">plone.dexterity.content.Container</property>
+ <property name="behaviors">
+  <element value="plone.app.content.interfaces.INameFromTitle"/>
+  <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+  <element value="cpma.dexteritycontent.easyimages.IEasyImages"/>
+  <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
+  <element
+     value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
+  <element value="cpma.dexteritycontent.pagesponsorship.IPageSponsorship"/>
+ </property>
+ <property name="schema"></property>
+ <property
+    name="model_source">&lt;model xmlns="http://namespaces.plone.org/supermodel/schema" xmlns:form="http://namespaces.plone.org/supermodel/form"&gt;
+    &lt;schema&gt;
+      &lt;field name="start" type="zope.schema.Datetime"&gt;
+        &lt;description&gt;Enter the starting date and time, or click the calendar icon and select it.&lt;/description&gt;
+        &lt;title&gt;Event Starts&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="recurs" type="zope.schema.Choice"&gt;
+        &lt;description&gt;Frequency of Occurence&lt;/description&gt;
+        &lt;title&gt;Occurs&lt;/title&gt;
+        &lt;default&gt;daily&lt;/default&gt;
+        &lt;values&gt;
+          &lt;element&gt;daily&lt;/element&gt;
+          &lt;element&gt;weekly&lt;/element&gt;
+          &lt;element&gt;biweekly&lt;/element&gt;
+          &lt;element&gt;monthly&lt;/element&gt;
+        &lt;/values&gt;
+      &lt;/field&gt;
+      &lt;field name="end" type="zope.schema.Datetime"&gt;
+        &lt;description&gt;Enter the ending date and time, or click the calendar icon and select it.&lt;/description&gt;
+        &lt;title&gt;Event Ends&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="event_type" type="zope.schema.Choice" form:widget="z3c.form.browser.radio.RadioFieldWidget"&gt;
+        &lt;description&gt;This color will be used for the background color for this event in the grid calendar.&lt;/description&gt;
+        &lt;title&gt;Background Color&lt;/title&gt;
+        &lt;default&gt;#e1e1e1&lt;/default&gt;
+        &lt;values&gt;
+          &lt;element&gt;#fff&lt;/element&gt;
+          &lt;element&gt;#46d6db&lt;/element&gt;
+          &lt;element&gt;#51b749&lt;/element&gt;
+          &lt;element&gt;#5484ed&lt;/element&gt;
+          &lt;element&gt;#7ae7bf&lt;/element&gt;
+          &lt;element&gt;#924420&lt;/element&gt;
+          &lt;element&gt;#a4bdfc&lt;/element&gt;
+          &lt;element&gt;#D06B64&lt;/element&gt;
+          &lt;element&gt;#dbadff&lt;/element&gt;
+          &lt;element&gt;#dc2127&lt;/element&gt;
+          &lt;element&gt;#e1e1e1&lt;/element&gt;
+          &lt;element&gt;#fbd75b&lt;/element&gt;
+          &lt;element&gt;#ff887c&lt;/element&gt;
+          &lt;element&gt;#ffb878&lt;/element&gt;
+        &lt;/values&gt;
+      &lt;/field&gt;
+      &lt;field name="homepage" type="zope.schema.Bool" form:widget="z3c.form.browser.radio.RadioFieldWidget" xmlns:form="http://namespaces.plone.org/supermodel/form"&gt;
+        &lt;default&gt;True&lt;/default&gt;
+        &lt;description&gt;Choose "yes" if this event should be eligible for display on the homepage.&lt;/description&gt;
+        &lt;title&gt;For Homepage&lt;/title&gt;
+      &lt;/field&gt;
+      &lt;field name="body" type="plone.app.textfield.RichText"&gt;
+        &lt;description /&gt;
+        &lt;required&gt;False&lt;/required&gt;
+        &lt;title&gt;Body Text&lt;/title&gt;
+      &lt;/field&gt;
+    &lt;/schema&gt;
+  &lt;/model&gt;</property>
+ <property name="model_file"></property>
+ <alias from="(Default)" to="(dynamic view)"/>
+ <alias from="edit" to="@@edit"/>
+ <alias from="sharing" to="@@sharing"/>
+ <alias from="view" to="(selected layout)"/>
+ <action title="View" action_id="view" category="object" condition_expr=""
+    icon_expr="" link_target="" url_expr="string:${object_url}"
+    visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Edit" action_id="edit" category="object" condition_expr=""
+    icon_expr="" link_target="" url_expr="string:${object_url}/edit"
+    visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+</object>
